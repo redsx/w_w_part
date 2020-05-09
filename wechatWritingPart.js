@@ -200,6 +200,10 @@ function SeatSys() {
         }
     }
     const chooseSeats = num => {
+        if (num < 1 || num > 5) {
+            console.error('选票数量不符合规范');
+            return [];
+        }
         let frontcol = Math.floor(SEATS_FRONT * SEATS_COL_LEN);
         let scatteredSeats;
         let bft = [];
@@ -257,6 +261,8 @@ function SeatSys() {
 let seatSys = SeatSys();
 seatSys.initSeats();
 seatSys.printSeats();
+seatSys.chooseSeats(0);
+seatSys.chooseSeats(6);
 seatSys.chooseSeats(2);
 seatSys.chooseSeats(3);
 seatSys.chooseSeats(4);
